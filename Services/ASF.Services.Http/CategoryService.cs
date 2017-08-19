@@ -34,6 +34,7 @@ namespace ASF.Services.Http
             }
             catch (Exception ex)
             {
+                //Comentario de cambio, el profesor no tiene paciencia y explica rapido. 1
                 var httpError = new HttpResponseMessage()
                 {
                     StatusCode = (HttpStatusCode)422,
