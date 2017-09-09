@@ -24,5 +24,16 @@ namespace ASF.UI.Process
             var response = HttpGet<AllResponse>("rest/Category/All", new Dictionary<string, object>(), MediaType.Json);
             return response.Result;
         }
+
+        public void insertCategory(Category Category)
+        {
+            ProcessComponent.HttpPost<Category>("rest/Category/Add", Category, MediaType.Json);
+
+        }
+
+        public void EditCategory(Category Category)
+        {
+
+        }
     }
 }

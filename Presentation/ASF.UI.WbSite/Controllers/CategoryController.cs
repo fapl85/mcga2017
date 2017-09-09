@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using ASF.UI.Process;
+using ASF.Entities;
 
 namespace ASF.UI.WbSite.Controllers
 {
@@ -25,26 +26,17 @@ namespace ASF.UI.WbSite.Controllers
         // GET: Category/Create
         public ActionResult Create()
         {
-            var VarCategoryProcess = new CategoryProcess();
-
-            return RedirectToAction("index");
+            return View();
         }
 
         // POST: Category/Create
         [HttpPost]
-        public ActionResult Create(FormCollection collection)
+        public ActionResult Create(Category category)
         {
-            try
-            {
                 // TODO: Add insert logic here
-                var VarCategoryProcess = new CategoryProcess();
-
+                var cp = new CategoryProcess();
+            cp.insertCategory(category);
                 return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
         }
 
         // GET: Category/Edit/5
