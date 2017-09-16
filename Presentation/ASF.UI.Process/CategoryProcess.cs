@@ -22,14 +22,30 @@ namespace ASF.UI.Process
         public List<Category> SelectList()
         {
             var response = HttpGet<AllResponse>("rest/Category/All", new Dictionary<string, object>(), MediaType.Json);
-            return response.Result;
+            return response.ResultCategory;
         }
         public Category findCategory(int id)
         {
             var parameters = new Dictionary<string, object>();
             parameters.Add("id", id);
             var response = HttpGet<FindResponse>("rest/Category/Find", parameters, MediaType.Json);
-            return response.Result;
+            return response.ResultCategory;
+        }
+        public void insertCategory(Category category)
+        {
+
+            ProcessComponent.HttpPost<Category>("rest/Category/Add", category, MediaType.Json);
+        }
+        public void editCategory(Category category)
+        {
+            ProcessComponent.HttpPost<Category>("rest/Category/Edit", category, MediaType.Json);
+        }
+
+        public void deleteCategory(int id)
+        {
+            var dic = new Dictionary<string, object>();
+            dic.Add("Id", id);
+            ProcessComponent.HttpGet<Category>("rest/Category/Remove/{id}", dic, MediaType.Json);
         }
     }
 }

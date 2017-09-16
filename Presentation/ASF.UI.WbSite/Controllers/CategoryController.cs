@@ -4,6 +4,8 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using ASF.UI.Process;
+using ASF.Entities;
+using ASF.UI.WbSite.Services.Cache;
 
 namespace ASF.UI.WbSite.Controllers
 {
@@ -30,11 +32,13 @@ namespace ASF.UI.WbSite.Controllers
 
         // POST: Category/Create
         [HttpPost]
-        public ActionResult Create(FormCollection collection)
+        public ActionResult Create(Category category)
         {
             try
             {
-                // TODO: Add insert logic here
+                //var cp = new CategoryProcess();
+                //cp.insertCategory(category);
+                DataCache.Instance.CategoryListRemove();
 
                 return RedirectToAction("Index");
             }
@@ -47,17 +51,18 @@ namespace ASF.UI.WbSite.Controllers
         // GET: Category/Edit/5
         public ActionResult Edit(int id)
         {
-            return View();
-        }
+            var cp = new CategoryProcess();
 
+            return View(cp.findCategory(id));
+        }
         // POST: Category/Edit/5
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        public ActionResult Edit(Category category)
         {
             try
             {
-                // TODO: Add update logic here
-
+                var cp = new CategoryProcess();
+                cp.editCategory(category);
                 return RedirectToAction("Index");
             }
             catch
@@ -69,17 +74,19 @@ namespace ASF.UI.WbSite.Controllers
         // GET: Category/Delete/5
         public ActionResult Delete(int id)
         {
-            return View();
+            var cp = new CategoryProcess();
+
+            return View(cp.findCategory(id));
         }
 
         // POST: Category/Delete/5
         [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
+        public ActionResult Delete(int id, Category category)
         {
             try
             {
-                // TODO: Add delete logic here
-
+                var cp = new CategoryProcess();
+                cp.deleteCategory(id);
                 return RedirectToAction("Index");
             }
             catch

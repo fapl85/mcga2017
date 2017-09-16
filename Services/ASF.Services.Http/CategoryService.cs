@@ -53,7 +53,7 @@ namespace ASF.Services.Http
             {
                 var response = new AllResponse();
                 var bc = new CategoryBusiness();
-                response.Result = bc.All();
+                response.ResultCategory = bc.All();
                 return response;
             }
             catch (Exception ex)
@@ -97,7 +97,7 @@ namespace ASF.Services.Http
             {
                 var response = new FindResponse();
                 var bc = new CategoryBusiness();
-                response.Result = bc.Find(id);
+                response.ResultCategory = bc.Find(id);
                 return response;
             }
             catch (Exception ex)
