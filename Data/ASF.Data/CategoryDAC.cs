@@ -18,7 +18,7 @@ using ASF.Entities;
 namespace ASF.Data
 {
     /// <summary>
-    /// 
+    /// DataAccessComponent
     /// </summary>
     public class CategoryDac : DataAccessComponent
     {
