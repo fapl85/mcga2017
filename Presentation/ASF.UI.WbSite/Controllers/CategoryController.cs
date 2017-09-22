@@ -25,7 +25,9 @@ namespace ASF.UI.WbSite.Controllers
         // GET: Category/Create
         public ActionResult Create()
         {
-            return View();
+            var VarCategoryProcess = new CategoryProcess();
+
+            return Redirect.RedirectToAction();
         }
 
         // POST: Category/Create
