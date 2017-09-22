@@ -27,7 +27,7 @@ namespace ASF.UI.WbSite.Controllers
         {
             var VarCategoryProcess = new CategoryProcess();
 
-            return Redirect.RedirectToAction();
+            return RedirectToAction("index");
         }
 
         // POST: Category/Create
@@ -37,6 +37,7 @@ namespace ASF.UI.WbSite.Controllers
             try
             {
                 // TODO: Add insert logic here
+                var VarCategoryProcess = new CategoryProcess();
 
                 return RedirectToAction("Index");
             }
